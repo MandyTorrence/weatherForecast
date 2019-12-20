@@ -27,7 +27,7 @@ function displayCityWeatherInfo() {
     }).then(function (response) {
         //Creating the icons and weather information for the current day
         var iconcode = response.weather[0].icon;
-        var iconURL = "https://cors-anywhere.herokuapp.com/http://openweathermap.org/img/w/" + iconcode + ".png";
+        var iconURL = "http://openweathermap.org/img/w/" + iconcode + ".png";
 
         $('#wicon').attr('src', iconURL);
         $("#city-name").text(response.name + " " + today + " ");
