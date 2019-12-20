@@ -18,7 +18,7 @@ console.log(cityName)
 
 function displayCityWeatherInfo() {
     cityName = $(this).attr("data-name") || cityName;
-    var queryURL = "http://api.openweathermap.org/data/2.5/weather?q=" + cityName + "&appid=d27e4ef8262b4dc0c0a24082fb8435f3";
+    var queryURL = "https://cors-anywhere.herokuapp.com/http://api.openweathermap.org/data/2.5/weather?q=" + cityName + "&appid=d27e4ef8262b4dc0c0a24082fb8435f3";
 
     // Creating an AJAX call for the specific city button being clicked
     $.ajax({
@@ -27,7 +27,7 @@ function displayCityWeatherInfo() {
     }).then(function (response) {
         //Creating the icons and weather information for the current day
         var iconcode = response.weather[0].icon;
-        var iconURL = "http://openweathermap.org/img/w/" + iconcode + ".png";
+        var iconURL = "https://cors-anywhere.herokuapp.com/http://openweathermap.org/img/w/" + iconcode + ".png";
 
         $('#wicon').attr('src', iconURL);
         $("#city-name").text(response.name + " " + today + " ");
@@ -37,7 +37,7 @@ function displayCityWeatherInfo() {
 
         //Adding the second ajax call to bring in the UV Information
         function displayUVInfo() {
-            var uvURL = "http://api.openweathermap.org/data/2.5/uvi?appid=d27e4ef8262b4dc0c0a24082fb8435f3&lat=" + response.coord.lat + "&lon=" + response.coord.lon;
+            var uvURL = "https://cors-anywhere.herokuapp.com/http://api.openweathermap.org/data/2.5/uvi?appid=d27e4ef8262b4dc0c0a24082fb8435f3&lat=" + response.coord.lat + "&lon=" + response.coord.lon;
             console.log(uvURL)
 
             $.ajax({
@@ -52,7 +52,7 @@ function displayCityWeatherInfo() {
         //adding the five-day forecast ajax call
 
         function displayForecast() {
-            var forecastURL = "http://api.openweathermap.org/data/2.5/forecast?q=" + cityName + "&appid=d27e4ef8262b4dc0c0a24082fb8435f3";
+            var forecastURL = "https://cors-anywhere.herokuapp.com/http://api.openweathermap.org/data/2.5/forecast?q=" + cityName + "&appid=d27e4ef8262b4dc0c0a24082fb8435f3";
             console.log(forecastURL)
 
             function clear() {
@@ -72,7 +72,7 @@ function displayCityWeatherInfo() {
                             console.log(data.list[i].weather[0].icon)
                             console.log(data.list[i].dt_txt)
                             var dayIconCode = data.list[i].weather[0].icon;
-                            var dayIconURL = "http://openweathermap.org/img/w/" + dayIconCode + ".png";
+                            var dayIconURL = "https://cors-anywhere.herokuapp.com/http://openweathermap.org/img/w/" + dayIconCode + ".png";
                             var dt = new Date(data.list[i].dt_txt);
                             console.log(dt)
                             return $("<div/>")
