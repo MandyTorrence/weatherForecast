@@ -72,7 +72,7 @@ function displayCityWeatherInfo() {
                             console.log(data.list[i].weather[0].icon)
                             console.log(data.list[i].dt_txt)
                             var dayIconCode = data.list[i].weather[0].icon;
-                            var dayIconURL = "https://cors-anywhere.herokuapp.com/http://openweathermap.org/img/w/" + dayIconCode + ".png";
+                            var dayIconURL = "http://openweathermap.org/img/w/" + dayIconCode + ".png";
                             var dt = new Date(data.list[i].dt_txt);
                             console.log(dt)
                             return $("<div/>")
